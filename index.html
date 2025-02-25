@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login with OTP</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form id="login-form">
+      <label for="email">Email:</label>
+      <input type="email" id="email" required placeholder="Enter your email">
+      <button type="button" id="send-otp">Send OTP</button>
+    </form>
+
+    <form id="otp-form" style="display: none;">
+      <label for="otp">Enter OTP:</label>
+      <input type="text" id="otp" maxlength="6" required placeholder="Enter OTP">
+      <button type="button" id="verify-otp">Verify OTP</button>
+    </form>
+
+    <p id="status" class="status-message"></p>
+  </div>
+
+  <script>
+    document.getElementById("send-otp").addEventListener("click", async () => {
+      const email = document.getElementById("email").value;
+      if (email) {
+        const response = await fetch('send_otp.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams({ email })
+        });
+        const result = await response.json();
+        alert(result.message);
+        if (result.status === 'success') {
+          document.getElementById("login-form").style.display = "none";
+          document.getElementById("otp-form").style.display = "block";
+        }
+      } else {
+        alert("Please enter a valid email.");
+      }
+    });
+
+    document.getElementById("verify-otp").addEventListener("click", async () => {
+      const otp = document.getElementById("otp").value;
+      const response = await fetch('verify_otp.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({ otp })
+      });
+      const result = await response.json();
+      alert(result.message);
+      if (result.status === 'success') {
+        document.getElementById("status").textContent = "Login successful!";
+        document.getElementById("status").style.color = "green";
+      } else {
+        document.getElementById("status").textContent = result.message;
+      }
+    });
+  </script>
+</body>
+</html>

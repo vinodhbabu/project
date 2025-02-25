@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Admin or Customer Support</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video autoplay muted loop class="background-video">
+    <source src="whats.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="contact-container">
+    <h2>Get in Touch</h2>
+    <p>Choose who you’d like to contact:</p>
+
+    <div class="button-container">
+      <!-- Admin Contact Button -->
+      <div class="contact-card">
+        <h3>Contact Admin</h3>
+        <p>If you need assistance from the admin, click below:</p>
+        <a href="https://wa.me/917993169489?text=Hello%2C%20I%20need%20assistance%20from%20Admin." target="_blank" rel="noopener noreferrer">
+          <button type="button">Contact Admin on WhatsApp</button>
+        </a>
+      </div>
+
+      <!-- Customer Support Button -->
+      <div class="contact-card">
+        <h3>Contact Customer Support</h3>
+        <p>Need help with our services? Reach out to customer support:</p>
+        <a href="https://wa.me/919182804051?text=Hello%2C%20I%20need%20help%20with%20customer%20support." target="_blank" rel="noopener noreferrer">
+          <button type="button">Contact Customer Support</button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      overflow: hidden; /* Prevents scrollbars caused by background video */
+    }
+
+    /* Background Video */
+    .background-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1; /* Keeps the video in the background */
+    }
+
+    .contact-container {
+      text-align: center;
+      padding: 50px;
+      position: relative; /* Allows the container to stay on top of the video */
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .contact-card {
+      background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      width: 300px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h3 {
+      margin-bottom: 10px;
+    }
+
+    button {
+      background-color: #25D366; /* WhatsApp green */
+      color: white;
+      padding: 15px 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #128C7E;
+      transform: scale(1.05);
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  </style>
+
+</body>
+</html>
